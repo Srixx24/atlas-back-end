@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+Retrieves employee data from a REST API and
+displays info on TODO list progress.
+"""
 import requests
 
 def get_employee(id):
