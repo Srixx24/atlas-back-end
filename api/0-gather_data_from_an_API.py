@@ -21,7 +21,7 @@ def get_employee_list(id):
         employee_name = employee_data['name']
         total_tasks = len(todos)
         completed_tasks = [
-            todo['title'] 
+            todo['title']
             for todo in todos
             if todo['completed']
         ]
