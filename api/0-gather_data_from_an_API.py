@@ -7,13 +7,13 @@ import requests
 
 
 def get_employee(id):
-    url = f"https://jsonplaceholder.typicode.com/user/{id}/todo"
+    url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
     response = requests.get(url)
     todos = response.json()
 
     employee_name = todos[0]['name']
-    all_tasks = len(todos)
-    completed = [todo['title'] for todo in todos if todo['completed']]
+    total_tasks = len(todos)
+    completed_tasks = [todo['title'] for todo in todos if todo['completed']]
 
     print(f"Employee {employee_name} is done with tasks "
           f"({completed_tasks}/{total_tasks}):")
