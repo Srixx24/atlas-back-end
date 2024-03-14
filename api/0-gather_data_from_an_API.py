@@ -6,12 +6,16 @@ displays info on TODO list progress.
 import requests
 
 
-def get_employee(id):
-    url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
-    response = requests.get(url)
+def get_employee_list(id):
+    name_url = f"https://jsonplaceholder.typicode.com/users/{id}"
+    response = requests.get(name_url)
+    employee_data = response.json()
+
+    todo_url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
+    response = requests.get(todo_url)
     todos = response.json()
 
-    employee_name = todos[0]['name']
+    employee_name = employee_data['name']
     total_tasks = len(todos)
     completed_tasks = [todo['title'] for todo in todos if todo['completed']]
 
