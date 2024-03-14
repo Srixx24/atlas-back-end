@@ -23,6 +23,3 @@ def get_employee(id):
     print("Completed Task Titles:")
     for title in completed_task_titles:
         print(f"\t{title}")
-
-id = int(input("Enter employee ID: "))
-get_employee(id)
