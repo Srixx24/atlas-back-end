@@ -20,7 +20,11 @@ def get_employee_list(id):
 
         employee_name = employee_data['name']
         total_tasks = len(todos)
-        completed_tasks = [todo['title'] for todo in todos if todo['completed']]
+        completed_tasks = [
+            todo['title'] 
+            for todo in todos
+            if todo['completed']
+        ]
 
         print(f"Employee {employee_name} is done with tasks "
               f"({len(completed_tasks)}/{total_tasks}):")
