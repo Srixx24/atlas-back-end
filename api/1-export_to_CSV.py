@@ -32,17 +32,19 @@ def export_csv_data(id):
             for todo in todos
         ]
 
-        csv_filename = f"{id}.csv"
-        with open(csv_filename, 'w', newline='') as csvfile:
-            fields = [
+        # Start of csv file
+        filename = "USER_ID.csv"
+        fields = [
                 'USER_ID',
                 'USERNAME',
                 'TASK_COMPLETED_STATUS',
                 'TASK_TITLE'
                 ]
-            csvwriter = csv.DictWriter(csvfile, fields)
-            csvwriter.writeheader()
-            csvwriter.writerows(tasks)
+        
+        with open(filename, 'w', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(tasks)
 
         print(f"Data has been written to USER_ID.csv")
 
