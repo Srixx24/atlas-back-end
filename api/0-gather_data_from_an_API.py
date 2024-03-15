@@ -28,9 +28,9 @@ def get_employee_list(id):
 
         print(f"Employee {employee_name} is done with tasks "
               f"({len(completed_tasks)}/{total_tasks}):")
-        print(f"EMPLOYEE_NAME:\t{employee_name}")
-        print(f"NUMBER_OF_DONE_TASKS:\t{len(completed_tasks)}")
-        print(f"TOTAL_NUMBER_OF_TASKS:\t{total_tasks}")
+        print(f"EMPLOYEE_NAME: {employee_name}")
+        print(f"NUMBER_OF_DONE_TASKS: {len(completed_tasks)}")
+        print(f"TOTAL_NUMBER_OF_TASKS: {total_tasks}")
         print("Completed Task Titles:")
         for title in completed_tasks:
             print(f"\t{title}")
