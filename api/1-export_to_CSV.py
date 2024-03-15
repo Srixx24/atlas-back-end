@@ -40,7 +40,7 @@ def export_csv_data(id):
                 'TASK_COMPLETED_STATUS',
                 'TASK_TITLE'
                 ]
-        
+
         with open(filename, 'w', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fields)
             writer.writeheader()
