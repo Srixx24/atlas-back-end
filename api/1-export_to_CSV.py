@@ -10,17 +10,21 @@ import sys
 
 def export_csv_data(id):
     name_url = f"https://jsonplaceholder.typicode.com/users/{id}"
-    todo_url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
 
     response_name = requests.get(name_url)
-    response_todo = requests.get(todo_url)
 
-    if response_name.status_code == 200 and response_todo.status_code == 200:
+    if response_name.status_code == 200:
         employee_data = response_name.json()
-        todos = response_todo.json()
 
         employee_name = employee_data['username']
         employee_id = employee_data['id']
+
+        tasks = [{
+                "USER_ID": employee_id,
+                "USERNAME": employee_name,
+                "TASK_COMPLETED_STATUS": "completed",
+                "TASK_TITLE": "title"
+            }]
 
         # Start of csv file
         filename = "USER_ID.csv"
@@ -37,16 +41,6 @@ def export_csv_data(id):
             writer.writerows(tasks)
 
         print(f"Data has been written to USER_ID.csv")
-
-        tasks = [
-            {
-                "USER_ID": employee_id,
-                "USERNAME": employee_name,
-                "TASK_COMPLETED_STATUS": todo['completed'],
-                "TASK_TITLE": todo['title']
-            }
-            for todo in todos
-        ]
 
     else:
         print("Failed to retrieve data.")
