@@ -19,12 +19,12 @@ def get_employee_list(id):
         todos = response_todo.json()
 
         employee_name = employee_data['name']
-        total_tasks = len(todos) + len(completed_tasks)
         completed_tasks = [
             todo['title']
             for todo in todos
             if todo['completed']
         ]
+        total_tasks = len(todos) + len(completed_tasks)
 
         print(f"Employee {employee_name} is done with tasks "
               f"({len(completed_tasks)}/{total_tasks}):")
