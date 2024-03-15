@@ -34,13 +34,18 @@ def export_csv_data(id):
 
         csv_filename = f"{id}.csv"
         with open(csv_filename, 'w', newline='') as csvfile:
-            fields = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
+            fields = [
+                'USER_ID',
+                'USERNAME',
+                'TASK_COMPLETED_STATUS',
+                'TASK_TITLE'
+                ]
             csvwriter = csv.DictWriter(csvfile, fields)
             csvwriter.writeheader()
             csvwriter.writerows(tasks)
-    
+
         print(f"Data has been written to USER_ID.csv")
-    
+
     else:
         print("Failed to retrieve data.")
 
