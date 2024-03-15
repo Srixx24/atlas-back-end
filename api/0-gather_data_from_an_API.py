@@ -19,7 +19,7 @@ def get_employee_list(id):
         todos = response_todo.json()
 
         employee_name = employee_data['name']
-        total_tasks = len(todos)
+        total_tasks = len(todos) + len(completed_tasks)
         completed_tasks = [
             todo['title']
             for todo in todos
