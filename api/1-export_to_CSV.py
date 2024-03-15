@@ -22,16 +22,6 @@ def export_csv_data(id):
         employee_name = employee_data['username']
         employee_id = employee_data['id']
 
-        tasks = [
-            {
-                "USER_ID": employee_id,
-                "USERNAME": employee_name,
-                "TASK_COMPLETED_STATUS": todo['completed'],
-                "TASK_TITLE": todo['title']
-            }
-            for todo in todos
-        ]
-
         # Start of csv file
         filename = "USER_ID.csv"
         fields = [
@@ -47,6 +37,16 @@ def export_csv_data(id):
             writer.writerows(tasks)
 
         print(f"Data has been written to USER_ID.csv")
+
+        tasks = [
+            {
+                "USER_ID": employee_id,
+                "USERNAME": employee_name,
+                "TASK_COMPLETED_STATUS": todo['completed'],
+                "TASK_TITLE": todo['title']
+            }
+            for todo in todos
+        ]
 
     else:
         print("Failed to retrieve data.")
