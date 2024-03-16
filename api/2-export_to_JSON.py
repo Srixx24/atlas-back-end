@@ -53,9 +53,11 @@ def get_employee_list(id):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: 2-export_to_JSON.py <id>")
+    if len(sys.argv) != 4:
+        print("Usage: 2-export_to_JSON.py <tasks> <user_id> <employee_name>")
         sys.exit(1)
 
-    id = sys.argv[1]
-    get_employee_list(id)
+    tasks = sys.argv[1]
+    user_id = sys.argv[2]
+    employee_name = sys.argv[3]
+    export_json_data(tasks, user_id, employee_name)
