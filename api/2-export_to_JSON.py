@@ -8,7 +8,7 @@ import requests
 import sys
 
 
-def export_json_data(tasks, user_id, employee_name):
+def export_json_data(tasks):
     filename = f"{user_id}.json"
 
     tasks = [
