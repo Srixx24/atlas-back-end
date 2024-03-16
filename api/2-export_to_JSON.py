@@ -27,8 +27,6 @@ def export_json_data(tasks, user_id, employee_name):
 
     print(f"Data has been written to {filename}.json")
 
-
-def read_json_data(filename):
     with open(filename, "r") as json_file:
         json_object = json.load(json_file)
 
@@ -47,7 +45,7 @@ def get_employee_list(id):
         tasks = response_todo.json()
 
         employee_name = employee_data['name']
-        export_json_data(id, employee_name, tasks)
+        export_json_data(tasks, user_id, employee_name)
     else:
         print("Failed to retrieve data.")
 
