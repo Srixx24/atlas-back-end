@@ -28,6 +28,13 @@ def export_json_data(tasks, user_id, employee_name):
     print(f"Data has been written to user_id.json")
 
 
+def read_json_data(filename):
+    with open(filename, "r") as json_file:
+            json_object = json.load(json_file)
+
+    print(json_object)
+
+
 def get_employee_list(id):
     name_url = f"https://jsonplaceholder.typicode.com/users/{id}"
     todo_url = f"https://jsonplaceholder.typicode.com/users/{id}/todos"
