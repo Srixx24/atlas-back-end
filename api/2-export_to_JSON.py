@@ -12,10 +12,10 @@ def export_json_data(tasks, user_id, employee_name):
     filename = f"{user_id}.json"
 
     tasks = {
-        str(user_id): [ 
+        str(user_id): [
             {
                 "task": task['title'],
-                "completed": task['completed'], 
+                "completed": task['completed'],
                 "username": employee_name
             }
             for task in tasks
