@@ -23,7 +23,7 @@ def export_json_data(tasks, user_id, employee_name):
     info = {"USER_ID": user_id, "tasks": info}
 
     with open(filename, "w") as json_file:
-        json.dump(tasks, json_file)
+        json.dump(tasks, json_file, indent=4)
 
     print(f"Data has been written to user_id.json")
 
