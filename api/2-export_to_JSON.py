@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 
 """
 Retrieves employee data from a REST API
 in JSON format and displays info.
