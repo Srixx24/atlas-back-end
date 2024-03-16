@@ -11,25 +11,21 @@ import sys
 def export_json_data(tasks, user_id, employee_name):
     filename = f"{user_id}.json"
 
-    tasks = {
-        str(user_id): [
-            {
-                "task": task['title'],
-                "completed": task['completed'],
-                "username": employee_name
-            }
-            for task in tasks
-        ]
-    }
+    tasks = [
+        {
+            "task": task['title'],
+            "completed": task['completed'],
+            "username": employee_name
+        }
+        for task in tasks
+    ]
 
-    # json_object = json.dumps(tasks, indent=4)
+    info = {"USER_ID": user_id, "tasks": info}
 
     with open(filename, "w") as json_file:
-        # json_file.write(json_object)
-        json.dump(tasks, json_file, indent=4)
+        json.dump(tasks, json_file)
 
-
-print(f"Data has been written to user_id.json")
+    print(f"Data has been written to user_id.json")
 
 
 def get_employee_list(id):
