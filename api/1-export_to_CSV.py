@@ -14,12 +14,12 @@ def export_csv_data(tasks, user_id, employee_name):
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([
-            "USER_ID", 
-            "USERNAME", 
-            "TASK_COMPLETED_STATUS", 
+            "USER_ID",
+            "USERNAME",
+            "TASK_COMPLETED_STATUS",
             "TASK_TITLE"
             ])
-        
+
         for task in tasks:
             task_id = task['id']
             task_title = task['title']
