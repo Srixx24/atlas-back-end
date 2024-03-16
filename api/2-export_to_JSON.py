@@ -8,7 +8,7 @@ import requests
 import sys
 
 
-def export_json_data(tasks):
+def export_json_data(tasks, user_id, employee_name):
     filename = f"{user_id}.json"
 
     tasks = [
@@ -25,7 +25,7 @@ def export_json_data(tasks):
     with open(filename, "w") as json_file:
         json.dump(tasks, json_file, indent=4)
 
-    print(f"Data has been written to user_id.json")
+    print(f"Data has been written to {filename}.json")
 
 
 def read_json_data(filename):
