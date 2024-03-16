@@ -11,6 +11,21 @@ import sys
 def export_all_json_data(tasks):
     filename = f"{todo_all_employees}.json"
 
+    data = {}
+
+    for task in tasks:
+        user_id = task['userid']
+        employee_name = task['username']
+        all_data = {
+            "username": employee_name,
+            "task": task['title'],
+            "completed": task['completed']
+        }
+        if user_id in data:
+            data[user_id].append(all_data)
+        else:
+            data[user_id] = [all_data]
+
     with open(filename, "w") as json_file:
         json.dump(data, json_file)
 
@@ -28,24 +43,9 @@ def all_employees(id):
         employee_data = response_name.json()
         tasks = response_todo.json()
 
-        return employee_data, tasks
+        return employee_data, tasks,
     else:
         print("Failed to retrieve employee data.")
-
-    data = {}
-    for task in tasks:
-        user_id = task['userid']
-        employee_name = task['username']
-        all_data = {
-            "username": employee_name,
-            "task": task['title'],
-            "completed": task['completed']
-        }
-        if user_id in all_data:
-            all_data[user_id].append(all_data)
-            all_data[task] = tasks
-        else:
-            data[user_id] = [all_data]
 
 
 if __name__ == "__main__":
