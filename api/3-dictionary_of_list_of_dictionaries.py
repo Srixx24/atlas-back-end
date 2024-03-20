@@ -9,7 +9,7 @@ import sys
 
 
 def export_all_json_data(tasks):
-    filename = f"{todo_all_employees}.json"
+    filename = "todo_all_employees.json"
 
     data = {}
 
@@ -43,7 +43,7 @@ def all_employees(id):
         employee_data = response_name.json()
         tasks = response_todo.json()
 
-        return employee_data, tasks,
+        return employee_data, tasks
     else:
         print("Failed to retrieve employee data.")
 
